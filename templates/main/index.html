@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title>Notes</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="menu">
+                <button name="menu_button" class="menu_button">New note</button>
+                <div class="menu_sort">
+                    <h2 class="menu_title">Sort</h2>
+                    <div class="menu_sort_by_time">
+                        <div class="menu_sort_by_time_title">Sort by time</div>
+                        <div class="menu_sort_by_time_date">
+                            <input type="date" name="firstDate">
+                            <input type="date" name="secondDate">
+                        </div>
+                    </div>
+                    <button name="menu_button" class="menu_button">All categories</button>
+                    <div>
+                        <ul class="menu_categories">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <ul class="notes">
+
+                </ul>
+            </div>
+
+            <form  action="" class="creating"> <!-- Заменить div на form -->
+                <div class="creating_category_and_name">
+{#                    <input type="text" placeholder="Note category" name="creating_category"class="creating_category">#}
+{#                    <input type="text" placeholder="Note name" name="creating_name" class="creating_name">#}
+
+                </div>
+
+                <textarea type="text" placeholder="Note content" name="creating_content" class="creating_content"></textarea>
+
+                <div class="creating_cansel_or_create">
+                    <button type="reset" name="cansel" class="creating_button">Cansel</button>
+                    <button type="submit" name="create" class="creating_button">Create</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="{% static "js/script.js" %}"></script>
+</body>
+</html>
