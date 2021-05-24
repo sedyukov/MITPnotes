@@ -35,7 +35,7 @@ function addNote() {
         fieldNotes.insertAdjacentHTML('beforeend',
             `<li class="notes_item" id="${i}">
                 <label for="${i}" class="notes_name">${item.name}</label>
-                <input type="image" src="{% static "icon/Vector.svg" %}" alt="trash" class="notes_trash">
+                <input type="image" src="/static/icon/Vector.svg" alt="trash" class="notes_trash">
             </li>`
         );
 
@@ -49,7 +49,7 @@ function addNote() {
 
 }
 
-createBtn.addEventListener('click', function() {
+newNoteBtn.addEventListener('click', function() {
     let newNote = {
         category: inputNoteCategory.value,
         name: inputNoteName.value,
