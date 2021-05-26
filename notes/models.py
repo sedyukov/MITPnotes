@@ -22,7 +22,7 @@ class Note(models.Model):
     text = models.TextField('Текст записи')
 
     def __str__(self):
-        return self.author
+        return self.name
 
     class Meta:
         verbose_name = 'Запись'
