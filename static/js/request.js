@@ -1,3 +1,22 @@
+$.fn.serializeObject = function()
+{
+   var o = {};
+   var a = this.serializeArray();
+   $.each(a, function() {
+       if (o[this.name]) {
+           if (!o[this.name].push) {
+               o[this.name] = [o[this.name]];
+           }
+           o[this.name].push(this.value || '');
+       } else {
+           o[this.name] = this.value || '';
+       }
+   });
+   return o;
+};
+
+
+
 $(document).ready(function (){
     $(".aim").click(function (){
             $.ajax({
@@ -14,18 +33,19 @@ $(document).ready(function (){
 
     $("#submit").click(
             function(){
-                sendAjaxForm('result_form', 'ajax_form', 'resp');
+                sendAjaxForm('result_form', 'ajax_form', "http://127.0.0.1:8000/note/");
                 return false;
             }
         );
     });
 
     function sendAjaxForm(result_form, ajax_form, url) {
+        console.log($("#"+ajax_form).serializeObject())
     $.ajax({
         url:     url, //url страницы (action_ajax_form.php)
         type:     "POST", //метод отправки
         dataType: "html", //формат данных
-        data: $("#"+ajax_form).serialize(),  // Сеарилизуем объект
+        data: $("#"+ajax_form).serializeObject(),  // Сеарилизуем объект
         success: function(response) { //Данные отправлены успешно
         	//result = $.parseJSON(response);
         	console.log("2112");

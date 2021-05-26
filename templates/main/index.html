@@ -45,16 +45,16 @@
             <form method="post" id="ajax_form"  action="" class="creating"> <!-- Заменить div на form -->
                 {% csrf_token %}
                 <div class="creating_category_and_name">
-                    <input type="text" placeholder="Note category" name="creating_category"class="creating_category">
-                    <input type="text" placeholder="Note name" name="creating_name" class="creating_name">
+                    <input type="text" placeholder="Note category" name="category"class="creating_category">
+                    <input type="text" placeholder="Note name" name="name" class="creating_name">
 
                 </div>
 
-                <textarea type="text" placeholder="Note content" name="creating_content" class="creating_content"></textarea>
+                <textarea type="text" placeholder="Note content" name="text" class="creating_content"></textarea>
 
                 <div class="creating_cansel_or_create">
                     <button type="reset" name="cansel" class="creating_button">Cansel</button>
-                    <button id="submit" type="submit" name="create" class="creating_button to_create">Create</button>
+                    <button id="submit" name="create" class="creating_button to_create">Create</button>
                 </div>
             </form>
         </div>
