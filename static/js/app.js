@@ -6,11 +6,49 @@ new Vue({
         cats: [],
         cat: "",
         name: "",
-        text: ""
+        text: "",
+        date: ""
     },
     methods: {
-        getName(){
-            console.log(this.name)  // использование переменной
+        makeNote(id){
+            const vm = this;
+            arr = vm.orders;
+            let i = 0;
+            while(id != vm.orders[i].id){
+               i++;
+            }
+            vm.name = vm.orders[i].name;
+            vm.cat = vm.orders[i].nameCat;
+            vm.text = vm.orders[i].text;
+            // arr.forEach(function (item, i, arr) {
+            //         if (item.id == id) {
+            //             index =
+            //         }
+            //     });
+        },
+        chooseCat(id){
+            const vm = this;
+            vm.orders = vm.stored;
+            vm.orders = vm.orders.filter(function(el){
+                return el.category == id;
+            });
+        },
+        chooseAll(){
+            const vm = this;
+            vm.orders = vm.stored;
+        },
+        chooseDate(id){
+            const vm = this;
+            vm.orders = vm.stored;
+            vm.orders = vm.orders.filter(function(el){
+                return el.date == vm.date;
+            });
+        },
+        emptyFields() {
+            const vm = this;
+            vm.name = "";
+            vm.cat = "";
+            vm.text = "";
         },
         deleteNote: function (id){
             const vm = this;
@@ -75,6 +113,7 @@ new Vue({
                                     axios.get('/note/').then(function (response) {
                                         console.log(response.data)
                                         vm.orders = response.data
+                                        vm.stored = vm.orders;
                                     })
                             })
                         })
@@ -93,6 +132,7 @@ new Vue({
                         axios.get('/note/').then(function (response) {
                             console.log(response.data)
                             vm.orders = response.data
+                            vm.stored = vm.orders;
                         })
                     })
             }
@@ -112,6 +152,7 @@ new Vue({
             .then(function (response) {
                 console.log(response.data)
                 vm.orders = response.data
+                vm.stored = vm.orders;
             })
     }
 }

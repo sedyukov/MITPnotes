@@ -14,20 +14,18 @@
 <section id="notes_app">
         <div class="container">
             <div class="menu">
-                <button name="menu_button" class="menu_button">New note</button>
                 <div class="menu_sort">
-                    <h2 class="menu_title">Sort</h2>
                     <div class="menu_sort_by_time">
                         <div class="menu_sort_by_time_title">Sort by time</div>
                         <div class="menu_sort_by_time_date">
-                            <input type="date" name="firstDate">
-                            <input type="date" name="secondDate">
+                            <input v-model="date" type="date" name="firstDate">
+                            <div class="entDate" v-on:click="chooseDate">Применить</div>
                         </div>
                     </div>
-                    <button name="menu_button" class="menu_button">All categories</button>
+                    <button v-on:click="chooseAll" name="menu_button" class="menu_button">Отменить</button>
                     <div>
                         <div class="menu_categories" v-for="cat in cats" v-bind:id="cat.id">
-                            <div class="menu_item">{{ cat.name }}</div>
+                            <div v-on:click="chooseCat(cat.id)" class="menu_item">{{ cat.name }}</div>
                         </div>
                     </div>
                 </div>
@@ -37,7 +35,7 @@
         <div class="notes_item" v-for="order in orders" v-bind:id="order.id">
                 <div class="notes_up">
                     <div class="notes_up_start">
-                        <label class="notes_name">Название: {{ order.name }}</label>
+                        <label v-on:click="makeNote(order.id)" class="notes_name">Название: {{ order.name }}</label>
                         <label class="notes_cat">Категория: {{ order.nameCat }}</label>
                     </div>
                     <div class="notes_up_end">
@@ -60,7 +58,7 @@
                 <textarea v-model="text" type="text" placeholder="Note content" name="text" class="creating_content"></textarea>
 
                 <div class="creating_cansel_or_create">
-                    <button v-on:click="getName"  name="cansel" class="creating_button">Cansel</button>
+                    <button v-on:click="emptyFields"  name="cancel" class="creating_button">Cancel</button>
                     <button v-on:click="createNote" class="creating_button to_create">Create</button>
                 </div>
             </div>
