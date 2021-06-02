@@ -16,7 +16,7 @@ html {
 }
 
 .menu {
-    width: 150px;
+    width: 200px;
     background: #2B2827;
     padding-top: 10px;
 }
@@ -37,7 +37,8 @@ html {
     color: #DCDCDC;
 }
 
-.menu .menu_sort {
+.menu_sort {
+    width: 180px;
     margin: 20px 0;
     padding: 0 1px;
 }
@@ -86,28 +87,61 @@ html {
     flex-direction: column;
 }
 
-.notes .notes_item {
-    height: 50px;
+.notes_item {
+    margin-top: 15px;
+    height: 100px;
     background: rgba(83, 83, 83, 0.5);
     border-radius: 5px;
     padding: 15px 20px 15px 20px;
     margin-bottom: 2px;
-
+}
+.notes_up{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
-
-.notes .notes_name {
+.notes_up_start{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.notes_up_end{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.notes_name {
     font-size: 18px;
     color: #DCDCDC;
     text-align: left;
 }
-
-/* .notes .notes_content {
-    font-size: 15px;
+.notes_date{
+    margin-left: 30px;
+    font-size: 18px;
     color: #DCDCDC;
     text-align: left;
-} */
+}
+.notes_cat{
+    margin-left: 30px;
+    font-size: 18px;
+    color: #DCDCDC;
+    text-align: left;
+}
+.button_delete{
+    width: 21px;
+    height: 21px;
+    margin-left: 30px;
+}
+
+.notes_container{
+    height: 500px;
+}
+.notes_content {
+    font-size: 14px;
+    color: #DCDCDC;
+    text-align: left;
+    height: 300px;
+}
 
 .creating {
     width: 350px;

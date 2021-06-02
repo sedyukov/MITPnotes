@@ -18,6 +18,7 @@ class Category(models.Model):
 class Note(models.Model):
     name = models.CharField('Имя', max_length=50)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    nameCat = models.CharField('Название категории', max_length=50, default="Нет категории")
     date = models.DateField('Дата добавления', auto_now_add=True)
     text = models.TextField('Текст записи')
 

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+{% verbatim %}
+<section id="notes_app">
+        <div class="container">
+            <div class="menu">
+                <button name="menu_button" class="menu_button">New note</button>
+                <div class="menu_sort">
+                    <h2 class="menu_title">Sort</h2>
+                    <div class="menu_sort_by_time">
+                        <div class="menu_sort_by_time_title">Sort by time</div>
+                        <div class="menu_sort_by_time_date">
+                            <input type="date" name="firstDate">
+                            <input type="date" name="secondDate">
+                        </div>
+                    </div>
+                    <button name="menu_button" class="menu_button">All categories</button>
+                    <div>
+                        <div class="menu_categories" v-for="cat in cats" v-bind:id="cat.id">
+                            <div class="menu_item">{{ cat.name }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div class="container">
+    <div class="notes">
+        <div class="notes_item" v-for="order in orders" v-bind:id="order.id">
+                <div class="notes_up">
+                    <div class="notes_up_start">
+                        <label class="notes_name">Название: {{ order.name }}</label>
+                        <label class="notes_cat">Категория: {{ order.nameCat }}</label>
+                    </div>
+                    <div class="notes_up_end">
+                        <div class="notes_date">{{ order.date }}</div>
+
+                        <img v-on:click="deleteNote(order.id)" class="button_delete" src="/static/icon/Vector.svg" alt="delete">
+                    </div>
+                </div>
+                    <div class="notes_content"> {{ order.text }}</div>
+        </div>
+    </div>
+</div>
+            <div id="ajax_form"  action="" class="creating"> <!-- Заменить div на form -->
+                <div class="creating_category_and_name">
+                    <input v-model="cat" type="text" placeholder="Note category" name="category"class="creating_category">
+                    <input v-model="name" type="text" placeholder="Note name" name="name" class="creating_name">
+
+                </div>
+
+                <textarea v-model="text" type="text" placeholder="Note content" name="text" class="creating_content"></textarea>
+
+                <div class="creating_cansel_or_create">
+                    <button v-on:click="getName"  name="cansel" class="creating_button">Cansel</button>
+                    <button v-on:click="createNote" class="creating_button to_create">Create</button>
+                </div>
+            </div>
+        </div>
+</section>
+{% endverbatim %}
+<script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -35,10 +35,10 @@
 //     noteList.forEach(function(item, i) {
 //
 //         fieldNotes.insertAdjacentHTML('beforeend',
-//             `<li class="notes_item" id="${i}">
+//             <li class="notes_item" id="${i}">
 //                 <label for="${i}" class="notes_name">${item.name}</label>
 //                 <input type="image" src="/static/icon/Vector.svg" alt="trash" class="notes_trash">
-//             </li>`
+//             </li>
 //         );
 //
 //         fieldCategory.insertAdjacentHTML('beforeend',
@@ -80,15 +80,15 @@
 //
 //
 // })
-"use strict";
+// "use strict";
 
 
-(($) => {
-    $.fn.extend({
-
-        $(".to_create").bind("click", ()=>{
-            console.log("xui")
-    })
-
-    });
-});
+// (($) => {
+//     $.fn.extend({
+//
+//         $(".to_create").bind("click", ()=>{
+//             console.log("xui")
+//     })
+//
+//     });
+// });
